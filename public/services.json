@@ -1,0 +1,62 @@
+[
+    {
+        "_id":"01",
+        "title": "Honeymoon Package",
+        "img": "https://media.cnn.com/api/v1/images/stellar/prod/underscored-cheap-honeymoon-packages-lead-couple-honeymoon-beach-maldives.jpg?q=h_1800,w_3200,x_0,y_0",
+        "price": "1500.00",
+        "rating": "3",
+        "days":"3",
+        "short_description": "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius veniam nostrum dolores nemo quas. Minima ullam, veniam, nesciunt quae dolore animi blanditiis deserunt, ea esse dolorum ipsum quibusdam ipsa! Corrupti at, excepturi, fugiat aut nihil neque aliquid sapiente dignissimos provident, animi molestiae ipsum. Repudiandae ipsa id nihil reiciendis soluta eos ducimus pariatur, nam architecto tenetur quo quos commodi est libero repellendus vitae. Fuga numquam nulla nam, facere neque expedita voluptatibus pariatur necessitatibus vel, dignissimos ab esse magni accusamus eveniet ad corrupti, architecto nostrum. Aspernatur ex quibusdam at cum nulla!"
+    },
+    {
+        "_id":"02",
+        "title": "Family Package",
+        "img": "https://www.budgettravel.ie/media/16150/family-holidays-macro-1.jpg?anchor=center&mode=crop&quality=75&width=900&rnd=132860478930000000",
+        "price": "2000.00",
+        "rating": "4",
+        "days":"4",
+        "short_description": "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius veniam nostrum dolores nemo quas. Minima ullam, veniam, nesciunt quae dolore animi blanditiis deserunt, ea esse dolorum ipsum quibusdam ipsa! Corrupti at, excepturi, fugiat aut nihil neque aliquid sapiente dignissimos provident, animi molestiae ipsum. Repudiandae ipsa id nihil reiciendis soluta eos ducimus pariatur, nam architecto tenetur quo quos commodi est libero repellendus vitae. Fuga numquam nulla nam, facere neque expedita voluptatibus pariatur necessitatibus vel, dignissimos ab esse magni accusamus eveniet ad corrupti, architecto nostrum. Aspernatur ex quibusdam at cum nulla!"
+    },
+    {
+        "_id":"03",
+        "title": "Holiday Package",
+        "img": "https://touradvisers.files.wordpress.com/2013/05/holiday-packages.jpg",
+        "price": "2500.00",
+        "rating": "5",
+        "days":"5",
+        "short_description": "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius veniam nostrum dolores nemo quas. Minima ullam, veniam, nesciunt quae dolore animi blanditiis deserunt, ea esse dolorum ipsum quibusdam ipsa! Corrupti at, excepturi, fugiat aut nihil neque aliquid sapiente dignissimos provident, animi molestiae ipsum. Repudiandae ipsa id nihil reiciendis soluta eos ducimus pariatur, nam architecto tenetur quo quos commodi est libero repellendus vitae. Fuga numquam nulla nam, facere neque expedita voluptatibus pariatur necessitatibus vel, dignissimos ab esse magni accusamus eveniet ad corrupti, architecto nostrum. Aspernatur ex quibusdam at cum nulla!"
+    },
+    {
+        "_id":"04",
+        "title": "Luxary Holiday",
+        "img": "https://www.puredestinations.co.uk/wp-content/uploads/2014/11/dreams-tulum-cancun-Top-10-Luxury-Family-Holiday-Destinations.jpg",
+        "price": "4000.00",
+        "rating": "5",
+        "days":"3",
+        "short_description": "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius veniam nostrum dolores nemo quas. Minima ullam, veniam, nesciunt quae dolore animi blanditiis deserunt, ea esse dolorum ipsum quibusdam ipsa! Corrupti at, excepturi, fugiat aut nihil neque aliquid sapiente dignissimos provident, animi molestiae ipsum. Repudiandae ipsa id nihil reiciendis soluta eos ducimus pariatur, nam architecto tenetur quo quos commodi est libero repellendus vitae. Fuga numquam nulla nam, facere neque expedita voluptatibus pariatur necessitatibus vel, dignissimos ab esse magni accusamus eveniet ad corrupti, architecto nostrum. Aspernatur ex quibusdam at cum nulla!"
+    },
+    {
+        "_id":"05",
+        "title": "Holiday Deals",
+        "img": "https://s.abcnews.com/images/GMA/HolidayDeals_NoProducts_v01_sd_1604942095363_hpMain_16x9_992.jpg",
+        "price": "3500.00",
+        "rating": "4",
+        "days":"2",
+        "short_description": "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius veniam nostrum dolores nemo quas. Minima ullam, veniam, nesciunt quae dolore animi blanditiis deserunt, ea esse dolorum ipsum quibusdam ipsa! Corrupti at, excepturi, fugiat aut nihil neque aliquid sapiente dignissimos provident, animi molestiae ipsum. Repudiandae ipsa id nihil reiciendis soluta eos ducimus pariatur, nam architecto tenetur quo quos commodi est libero repellendus vitae. Fuga numquam nulla nam, facere neque expedita voluptatibus pariatur necessitatibus vel, dignissimos ab esse magni accusamus eveniet ad corrupti, architecto nostrum. Aspernatur ex quibusdam at cum nulla!"
+    },
+    {
+        "_id":"06",
+        "title": "Group Tour Package",
+        "img": "https://memorableindia.com/blog/wp-content/uploads/2019/05/group-tours.jpg",
+        "price": "2500.00",
+        "rating": "5",
+        "days":"4",
+        "short_description": "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius veniam nostrum dolores nemo quas. Minima ullam, veniam, nesciunt quae dolore animi blanditiis deserunt, ea esse dolorum ipsum quibusdam ipsa! Corrupti at, excepturi, fugiat aut nihil neque aliquid sapiente dignissimos provident, animi molestiae ipsum. Repudiandae ipsa id nihil reiciendis soluta eos ducimus pariatur, nam architecto tenetur quo quos commodi est libero repellendus vitae. Fuga numquam nulla nam, facere neque expedita voluptatibus pariatur necessitatibus vel, dignissimos ab esse magni accusamus eveniet ad corrupti, architecto nostrum. Aspernatur ex quibusdam at cum nulla!"
+    }
+]
