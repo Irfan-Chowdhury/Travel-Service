@@ -17,12 +17,27 @@ const Header = () => {
         <li className="nav-item">
             <Link className="nav-link" aria-current="page" to="/">Home</Link>
         </li>
+        <li className="nav-item">
+            <Link className="nav-link" aria-current="page" to="/all-service">All Service</Link>
+        </li>
+        <li className="nav-item">
+            <Link className="nav-link" aria-current="page" to="/">My Reviews</Link>
+        </li>
+        <li className="nav-item">
+            <Link className="nav-link" aria-current="page" to="/">Add Service</Link>
+        </li>
+        <li className="nav-item">
+            <Link className="nav-link" aria-current="page" to="/">Blog</Link>
+        </li>
         {
             user?.email ?
                 <>
-                    <li className="nav-item">
-                        <Link className="nav-link" aria-current="page" to="/orders">Orders</Link>
+                    {/* <li className="nav-item">
+                        <Link className="nav-link" aria-current="page" to="/">My Reviews</Link>
                     </li>
+                    <li className="nav-item">
+                        <Link className="nav-link" aria-current="page" to="/">Add Service</Link>
+                    </li> */}
                     <li className="nav-item">
                         <button onClick={handleLogOut} className="nav-link btn btn-outline-danger" aria-current="page">Logout</button>
                     </li>
@@ -32,12 +47,11 @@ const Header = () => {
                     <Link className="nav-link" aria-current="page" to="/login">Login</Link>
                 </li>
         }
-
     </>
 
 
     return (
-          <nav class="navbar navbar-expand-lg navbar-dark bg-dark text-light mb-2">
+          <nav className="navbar navbar-expand-lg navbar-dark bg-dark text-light mb-2">
             <div className="container-fluid">
                 <a className="navbar-brand" href="/">
                   <img src={logo} style={{height:'50px',width:'60px'}} alt="Bootstrap" />
