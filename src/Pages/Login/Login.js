@@ -1,13 +1,17 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
-// import login from '../../assets/images/login/login.svg';
+import { Button } from 'react-bootstrap';
+import { Link, useNavigate } from 'react-router-dom';
+import { FaGoogle } from 'react-icons/fa';
 import login from '../../assets/login/login.webp'
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import useTitle from '../../hooks/useTitle';
+import { GoogleAuthProvider } from 'firebase/auth';
 
 const Login = () => {
     useTitle('Login');
-    const {logIn} = useContext(AuthContext);
+    const {logIn, providerLogin} = useContext(AuthContext);
+    const googleProvider = new GoogleAuthProvider();
+    const navigate = useNavigate();
 
     const handleLogin = event => {
         event.preventDefault();
@@ -23,6 +27,20 @@ const Login = () => {
         })
         .catch(error => {
             console.error(error);
+        });
+    }
+
+    // Log In with Google
+    const handleGoogleSignIn = () => {
+        providerLogin(googleProvider)
+        .then(result => {
+            const user = result.user;
+            console.log(user);
+            navigate('/');
+        })
+        .catch(error => {
+            console.error(error)
+            // setError(error.message)
         });
     }
 
@@ -47,6 +65,8 @@ const Login = () => {
                             <label htmlFor="floatingPassword">Password</label>
                         </div>
                         <button className="w-100 btn btn-lg btn-primary" type="submit">LOGIN</button>
+                        <Button onClick={handleGoogleSignIn} className='mb-2 mt-3 w-100' variant="btn btn-lg btn-outline-dark"> <FaGoogle></FaGoogle> Login with Google</Button>
+
                         <hr className="my-4" />
                         <small className="text-muted">New to Genius Car ? Please <Link to='/signup'>Sign Up</Link></small>
                     </form>
