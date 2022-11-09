@@ -7,7 +7,6 @@ const Home = () => {
 
     useTitle('Home');
 
-
     return (
         <main>
             <Slider></Slider>
