@@ -1,24 +1,47 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import signup from '../../assets/signup/signup.jpg';
+import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import useTitle from '../../hooks/useTitle';
 
 const SignUp = () => {
     useTitle('SignUp');
 
+    const {createUser} = useContext(AuthContext);
+
+
+    const handleSignUp = event => {
+        event.preventDefault();
+        const form     = event.target;
+        const name     = form.name.value;
+        const email    = form.email.value;
+        const password = form.password.value;
+        console.log(name,email,password);
+
+        createUser(email, password)
+        .then(result => {
+            const user = result.user;
+            console.log(result);
+            console.log(user);
+            form.reset();
+        })
+        .catch(err => console.error(err));
+
+    }
+
     return (
         <div className="container col-xl-10 col-xxl-8 px-4 py-5 bg-light">
             <div className="row align-items-center g-lg-5 py-5">
                 <div className="col-lg-7 text-center text-lg-start">
-                    <img src={signup} alt="" width="500px"  />
+                    <img src={signup} alt="" width="500px" />
                 </div>
                 <div className="col-md-10 mx-auto col-lg-5">
-                    <form className="p-4 p-md-5 border rounded-3 bg-light">
+                    <form onSubmit={handleSignUp} className="p-4 p-md-5 border rounded-3 bg-light">
                         <h3 className='text-center mb-5'>Sign Up</h3>
 
                         <div className="form-floating mb-3">
-                            <input type="text" name='name' className="form-control" id="floatingInput" placeholder="Your Name" />
-                            <label htmlFor="floatingInput">Your Name</label>
+                            <input type="text" name='name' className="form-control"  placeholder="Your Name" />
+                            <label>Your Name</label>
                         </div>
                         <div className="form-floating mb-3">
                             <input type="email" name='email' className="form-control" id="floatingInput" placeholder="Email" />

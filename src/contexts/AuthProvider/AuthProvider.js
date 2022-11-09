@@ -11,18 +11,18 @@ const AuthProvider = ({children}) => {
     const [loading, setLoading] = useState(true);
 
     const createUser = (email, password) => {
-        setLoading(true);
+        // setLoading(true);
         return createUserWithEmailAndPassword(auth, email, password);
     }
 
     const logIn = (email, password) => {
-        setLoading(true);
+        // setLoading(true);
         return signInWithEmailAndPassword(auth, email, password);
     }
 
     const logOut = () => {
-        localStorage.removeItem('genius-token')
-        setLoading(true);
+        // localStorage.removeItem('genius-token')
+        // setLoading(true);
         return signOut(auth);
     }
 

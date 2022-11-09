@@ -9,8 +9,8 @@ const Header = () => {
 
     const handleLogOut = () => {
         logOut()
-            .then(() => { })
-            .catch(error => console.error(error));
+        .then(() => { })
+        .catch(error => console.error(error));
     }
 
     const menuItems = <>
@@ -21,25 +21,19 @@ const Header = () => {
             <Link className="nav-link" aria-current="page" to="/services">All Service</Link>
         </li>
         <li className="nav-item">
-            <Link className="nav-link" aria-current="page" to="/">My Reviews</Link>
-        </li>
-        <li className="nav-item">
-            <Link className="nav-link" aria-current="page" to="/add-service">Add Service</Link>
-        </li>
-        <li className="nav-item">
             <Link className="nav-link" aria-current="page" to="/blog">Blog</Link>
         </li>
         {
             user?.email ?
                 <>
-                    {/* <li className="nav-item">
+                   <li className="nav-item">
                         <Link className="nav-link" aria-current="page" to="/">My Reviews</Link>
                     </li>
                     <li className="nav-item">
-                        <Link className="nav-link" aria-current="page" to="/">Add Service</Link>
-                    </li> */}
+                        <Link className="nav-link" aria-current="page" to="/add-service">Add Service</Link>
+                    </li>
                     <li className="nav-item">
-                        <button onClick={handleLogOut} className="nav-link btn btn-outline-danger" aria-current="page">Logout</button>
+                        <button onClick={handleLogOut} className="nav-link btn btn-danger text-light" aria-current="page">Logout</button>
                     </li>
                 </>
                 :
