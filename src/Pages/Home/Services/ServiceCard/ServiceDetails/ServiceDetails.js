@@ -4,7 +4,6 @@ import { useLoaderData } from 'react-router-dom';
 
 const ServiceDetails = () => {
     const {title,img,price,days,rating,description} = useLoaderData();    
-    // AiTwotoneStar
     return (
         <section className='container mt-3'>
             <div className="card text-start">
