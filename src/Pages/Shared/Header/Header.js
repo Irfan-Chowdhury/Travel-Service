@@ -27,7 +27,7 @@ const Header = () => {
             <Link className="nav-link" aria-current="page" to="/add-service">Add Service</Link>
         </li>
         <li className="nav-item">
-            <Link className="nav-link" aria-current="page" to="/">Blog</Link>
+            <Link className="nav-link" aria-current="page" to="/blog">Blog</Link>
         </li>
         {
             user?.email ?
