@@ -2,8 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 // import login from '../../assets/images/login/login.svg';
 import login from '../../assets/login/login.webp'
+import useTitle from '../../hooks/useTitle';
 
 const Login = () => {
+    useTitle('Login');
+    
     return (
         <div className="container col-xl-10 col-xxl-8 px-4 py-5 bg-light">
             <div className="row align-items-center g-lg-5 py-5">

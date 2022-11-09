@@ -1,8 +1,11 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
+import useTitle from '../../hooks/useTitle';
 import ServiceCard from '../Home/Services/ServiceCard/ServiceCard';
 
 const AllService = () => {
+    useTitle('All Services');
+
     const services = useLoaderData();
     return (
         <section className='container p-3'>

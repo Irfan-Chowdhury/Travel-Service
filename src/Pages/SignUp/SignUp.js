@@ -1,8 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import signup from '../../assets/signup/signup.jpg';
+import useTitle from '../../hooks/useTitle';
 
 const SignUp = () => {
+    useTitle('SignUp');
+
     return (
         <div className="container col-xl-10 col-xxl-8 px-4 py-5 bg-light">
             <div className="row align-items-center g-lg-5 py-5">

@@ -1,8 +1,11 @@
 import React from 'react';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import { useLoaderData } from 'react-router-dom';
+import useTitle from '../../../../../hooks/useTitle';
 
 const ServiceDetails = () => {
+    useTitle('Service Details');
+
     const {title,img,price,days,rating,description} = useLoaderData();    
     return (
         <section className='container mt-3'>
