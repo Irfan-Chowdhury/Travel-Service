@@ -53,7 +53,7 @@ const AuthProvider = ({children}) => {
 
     // Toast
     const successMessage = () => {
-        toast.success('Data Saved Successfully', {
+        toast.success('Successfully Done', {
             position: "top-right",
             autoClose: 5000,
             hideProgressBar: false,

@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import { Link, useLoaderData } from 'react-router-dom';
 import useTitle from '../../../../../hooks/useTitle';
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 // import 'react-toastify/dist/ReactToastify.css';
 import { AuthContext } from '../../../../../contexts/AuthProvider/AuthProvider';
 import CustomersReview from './CustomersReview/CustomersReview';
