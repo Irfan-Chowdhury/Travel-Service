@@ -14,7 +14,7 @@ const ServiceWiseReviews = ({ service }) => {
 
     // Load Service wise Reviews
     useEffect(() => {
-        fetch(`http://localhost:5000/reviews/${serviceId}`, {
+        fetch(`https://service-review-server-murex.vercel.app/reviews/${serviceId}`, {
             method: 'GET',
             headers: {
                 authorization: `Bearer ${localStorage.getItem('travel-service-token')}`
@@ -36,7 +36,7 @@ const ServiceWiseReviews = ({ service }) => {
     const handleDelete = (reviewId) => {
         const proceed = window.confirm('Are you sure to delete ?');
         if (proceed) {
-            fetch(`http://localhost:5000/review/${reviewId}`, {
+            fetch(`https://service-review-server-murex.vercel.app/review/${reviewId}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())
@@ -51,37 +51,50 @@ const ServiceWiseReviews = ({ service }) => {
     }
 
 
-    // Update
-    // const handleUpdateUser = (reviewId,event) => {
-    //     event.preventDefault();
-    //     // this.preventDefault();
-    //     const form       = this.target;
-    //     const customerReview = form.review.value;
+    // Review Update
+    const handleUpdateUser = (event) => {
+        event.preventDefault();
+        const form       = event.target;
+        const customerReview = form.review.value;
+        const reviewId = form.review_id.value;
 
-    //     const reviewData = {
-    //         review: customerReview
-    //     };
+        const reviewData = {
+            review: customerReview
+        };
 
-    //     console.log(123);
-    //     return;
+        fetch(`https://service-review-server-murex.vercel.app/review/${reviewId}`,{
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(reviewData)
+        })
+        .then(res => res.json())
+        .then(data => {
 
-    //     fetch(`http://localhost:5000/review/${reviewId}`,{
-    //         method: 'PUT',
-    //         headers: {
-    //             'content-type': 'application/json'
-    //         },
-    //         body: JSON.stringify(reviewData)
-    //     })
-    //     .then(res => res.json())
-    //     .then(data => {
-    //         if (data.modifiedCount > 0) {
-    //             successMessage();
+            // const newReviewData = {
+            //     _id:reviewId,
+            //     service_id: data.service_id,
+            //     // service_title: title,
+            //     img: data.img,
+            //     name: data.name,
+            //     email: data.email,
+            //     rating: data.rating,
+            //     review: data.review
+            // };
 
-    //             // const updatedReview = [...reviews, reviewData]
-    //             // setReviews(updatedReview);
-    //         }
-    //     })
-    // }
+            // console.log(newReviewData);
+            // const updatedReview = [newReviewData];
+            // setReviews(updatedReview);
+            // reviews();
+
+            // if (data.modifiedCount > 0) {
+                successMessage();
+            //     const updatedReview = [...reviews, data]
+            //     setReviews(updatedReview);
+            // }
+        })
+    }
 
     return (
         <div className="card mt-3">
@@ -102,7 +115,7 @@ const ServiceWiseReviews = ({ service }) => {
                     <tbody>
                         {
                             reviews.length > 0 ?
-                                reviews.map(review => <Review key={review._id} review={review} title={title} handleDelete={handleDelete}></Review>)
+                                reviews.map(review => <Review handleUpdateUser={handleUpdateUser} key={review._id} review={review} title={title} handleDelete={handleDelete}></Review>)
                                 :
                                 <tr>
                                     <td><h2 className='p-4 text-danger'>No Review Found</h2></td>

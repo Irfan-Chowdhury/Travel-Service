@@ -9,7 +9,7 @@ const MyReviews = () => {
 
     const [services, setServices] = useState([]);
     useEffect( () => {
-        fetch(`http://localhost:5000/services`)
+        fetch(`https://service-review-server-murex.vercel.app/services`)
         .then(res => res.json())
         .then(data => setServices(data))
     });

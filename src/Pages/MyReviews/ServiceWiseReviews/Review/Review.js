@@ -3,38 +3,37 @@ import { FaUser, FaTrash, FaPencilAlt } from 'react-icons/fa';
 import { ToastContainer } from 'react-toastify';
 import { AuthContext } from '../../../../contexts/AuthProvider/AuthProvider';
 
-const Review = ({ review, handleDelete, title}) => {
+const Review = ({ review, handleDelete, title, handleUpdateUser}) => {
     
     const { successMessage } = useContext(AuthContext);
 
+    // const handleUpdateUser = event => {
+    //     event.preventDefault();
+    //     const form       = event.target;
+    //     const customerReview = form.review.value;
+    //     const reviewId = review._id;
 
-    const handleUpdateUser = event => {
-        event.preventDefault();
-        const form       = event.target;
-        const customerReview = form.review.value;
-        const reviewId = review._id;
+    //     const reviewData = {
+    //         review: customerReview
+    //     };
 
-        const reviewData = {
-            review: customerReview
-        };
+    //     fetch(`https://service-review-server-murex.vercel.app/review/${reviewId}`,{
+    //         method: 'PUT',
+    //         headers: {
+    //             'content-type': 'application/json'
+    //         },
+    //         body: JSON.stringify(reviewData)
+    //     })
+    //     .then(res => res.json())
+    //     .then(data => {
+    //         if (data.modifiedCount > 0) {
+    //             successMessage();
 
-        fetch(`http://localhost:5000/review/${reviewId}`,{
-            method: 'PUT',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(reviewData)
-        })
-        .then(res => res.json())
-        .then(data => {
-            if (data.modifiedCount > 0) {
-                successMessage();
-
-                // const updatedReview = [...reviews, reviewData]
-                // setReviews(updatedReview);
-            }
-        })
-    }
+    //             // const updatedReview = [...reviews, reviewData]
+    //             // setReviews(updatedReview);
+    //         }
+    //     })
+    // }
 
     return (
         <>
@@ -92,11 +91,12 @@ const Review = ({ review, handleDelete, title}) => {
                                 </div> */}
                                 <div className="mb-3">
                                     <label htmlFor="exampleFormControlTextarea1" className="form-label"><b>Review</b></label>
+                                    <input type="text" hidden name='review_id' defaultValue={review._id} />
                                     <input type="text" className="form-control" name='review' defaultValue={review.review}/>
                                 </div>
                                 <div className="modal-footer">
-                                    {/* <button type="submit" data-bs-dismiss="modal" className="btn btn-primary">Update</button> */}
-                                    <button type="submit" className="btn btn-primary">Update</button>
+                                    <button type="submit" data-bs-dismiss="modal" className="btn btn-primary">Update</button>
+                                    {/* <button type="submit" className="btn btn-primary">Update</button> */}
                                 </div>
                             </form>
                         </div>
