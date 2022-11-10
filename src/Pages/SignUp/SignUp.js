@@ -1,32 +1,45 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import signup from '../../assets/signup/signup.jpg';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import useTitle from '../../hooks/useTitle';
 
 const SignUp = () => {
     useTitle('SignUp');
+    const navigate = useNavigate();
 
-    const {createUser} = useContext(AuthContext);
+    const {createUser, updateUserProfile} = useContext(AuthContext);
 
 
     const handleSignUp = event => {
         event.preventDefault();
-        const form     = event.target;
-        const name     = form.name.value;
-        const email    = form.email.value;
-        const password = form.password.value;
-        console.log(name,email,password);
+        const form      = event.target;
+        const name      = form.name.value;
+        const photoURL  = form.photo_url.value;
+        const email     = form.email.value;
+        const password  = form.password.value;
+        // console.log(name,email,password);
 
         createUser(email, password)
         .then(result => {
-            const user = result.user;
-            console.log(result);
-            console.log(user);
+            // const user = result.user;
+            // console.log(result);
+            // console.log(user);
             form.reset();
+            handleUpdateUserProfile(name, photoURL);
+            navigate('/');
         })
         .catch(err => console.error(err));
+    }
 
+    const handleUpdateUserProfile = (name, photoURL) =>{
+        const profile = {
+            displayName: name,
+            photoURL: photoURL
+        }
+        updateUserProfile(profile)
+        .then(() => {})
+        .catch(error => console.error(error));
     }
 
     return (
@@ -42,6 +55,10 @@ const SignUp = () => {
                         <div className="form-floating mb-3">
                             <input type="text" name='name' className="form-control"  placeholder="Your Name" />
                             <label>Your Name</label>
+                        </div>
+                        <div className="form-floating mb-3">
+                            <input type="text" name='photo_url' className="form-control" placeholder="Photo URL" />
+                            <label>Photo Link</label>
                         </div>
                         <div className="form-floating mb-3">
                             <input type="email" name='email' className="form-control" id="floatingInput" placeholder="Email" />

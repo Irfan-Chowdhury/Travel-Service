@@ -63,52 +63,52 @@ const AddService = () => {
 
     return (
         <div className='container'>
-            <div class="card">
+            <div className="card">
                 <div className="card-header text-center">
                     <h2>Add Service</h2>
                 </div>
-                <div class="card-body">
+                <div className="card-body">
                     <form onSubmit={handleSubmit}>
-                        <div class="row mb-3">
-                            <label for="inputEmail3" class="col-sm-2 col-form-label">Title</label>
-                            <div class="col-sm-10">
-                                <input type="text" name='title' class="form-control" placeholder='Title' />
+                        <div className="row mb-3">
+                            <label for="inputEmail3" className="col-sm-2 col-form-label">Title</label>
+                            <div className="col-sm-10">
+                                <input type="text" name='title' className="form-control" placeholder='Title' />
                             </div>
                         </div>
-                        <div class="row mb-3">
-                            <label for="inputPassword3" class="col-sm-2 col-form-label">Image Link</label>
-                            <div class="col-sm-10">
-                                <input type="text" name='img' class="form-control" placeholder='Image Link' />
+                        <div className="row mb-3">
+                            <label for="inputPassword3" className="col-sm-2 col-form-label">Image Link</label>
+                            <div className="col-sm-10">
+                                <input type="text" name='img' className="form-control" placeholder='Image Link' />
                             </div>
                         </div>
-                        <div class="row mb-3">
-                            <label for="inputPassword3" class="col-sm-2 col-form-label">Price</label>
-                            <div class="col-sm-10">
-                                <input type="number" name='price' class="form-control" placeholder='Price'/>
+                        <div className="row mb-3">
+                            <label for="inputPassword3" className="col-sm-2 col-form-label">Price</label>
+                            <div className="col-sm-10">
+                                <input type="number" name='price' className="form-control" placeholder='Price'/>
                             </div>
                         </div>
-                        <div class="row mb-3">
-                            <label for="inputPassword3" class="col-sm-2 col-form-label">Days</label>
-                            <div class="col-sm-10">
-                                <input type="text" name='days' class="form-control" placeholder='Days' />
+                        <div className="row mb-3">
+                            <label for="inputPassword3" className="col-sm-2 col-form-label">Days</label>
+                            <div className="col-sm-10">
+                                <input type="text" name='days' className="form-control" placeholder='Days' />
                             </div>
                         </div>
-                        <div class="row mb-3">
-                            <label for="inputPassword3" class="col-sm-2 col-form-label">Rating</label>
-                            <div class="col-sm-10">
-                                <input type="text" name='rating' class="form-control" placeholder='Rating' />
+                        <div className="row mb-3">
+                            <label for="inputPassword3" className="col-sm-2 col-form-label">Rating</label>
+                            <div className="col-sm-10">
+                                <input type="text" name='rating' className="form-control" placeholder='Rating' />
                             </div>
                         </div>
-                        <div class="row mb-3">
-                            <label for="inputPassword3" class="col-sm-2 col-form-label">Short Description</label>
-                            <div class="col-sm-10">
-                                <input type="text" name='short_description' class="form-control" placeholder='Rating' />
+                        <div className="row mb-3">
+                            <label for="inputPassword3" className="col-sm-2 col-form-label">Short Description</label>
+                            <div className="col-sm-10">
+                                <input type="text" name='short_description' className="form-control" placeholder='Rating' />
                             </div>
                         </div>
-                        <div class="row mb-3">
-                            <label for="inputPassword3" class="col-sm-2 col-form-label">Long Description</label>
-                            <div class="col-sm-10">
-                                <textarea name="description" cols="30" rows="5"  class="form-control"></textarea>
+                        <div className="row mb-3">
+                            <label for="inputPassword3" className="col-sm-2 col-form-label">Long Description</label>
+                            <div className="col-sm-10">
+                                <textarea name="description" cols="30" rows="5"  className="form-control"></textarea>
                             </div>
                         </div>
                         <div className="d-grid gap-2">
