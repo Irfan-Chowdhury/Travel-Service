@@ -21,12 +21,12 @@ const router = createBrowserRouter([
             {
                 path:'/services',
                 element:<AllService></AllService>,
-                loader: () => fetch('http://localhost:5000/services')
+                loader: () => fetch('https://service-review-server-murex.vercel.app/services')
             },
             {
                 path:'/services/:id',
                 element:<ServiceDetails></ServiceDetails>, //Private
-                loader: ({params}) => fetch(`http://localhost:5000/services/${params.id}`)
+                loader: ({params}) => fetch(`https://service-review-server-murex.vercel.app/services/${params.id}`)
             },
             {
                 path:'/add-service',

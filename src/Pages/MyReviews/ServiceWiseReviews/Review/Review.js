@@ -18,7 +18,7 @@ const Review = ({ review, handleDelete, title}) => {
             review: customerReview
         };
 
-        fetch(`http://localhost:5000/review/${reviewId}`,{
+        fetch(`https://service-review-server-murex.vercel.app/review/${reviewId}`,{
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
