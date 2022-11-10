@@ -105,7 +105,6 @@ const ServiceDetails = () => {
                 <div className="card-footer text-muted"></div>
             </div>
 
-
             {/* Add Review  */}
             <div className="card mt-4">
                 <div className="card-header text-center"><h3>Add Review</h3></div>
@@ -154,7 +153,6 @@ const ServiceDetails = () => {
                     }
                 </div>
             </div>
-
 
             {/* Other Customer Review  */}
             <div className="card mt-5 mb-3">

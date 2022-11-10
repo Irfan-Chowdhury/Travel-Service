@@ -1,4 +1,6 @@
 import React, { useContext } from 'react';
+import { Image } from 'react-bootstrap';
+import { FaUser } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import logo from '../../../assets/service/service.webp';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
@@ -59,6 +61,21 @@ const Header = () => {
                       {menuItems}
                   </ul>
 
+                  <form className="d-flex">
+                    {
+                        user?.uid ?
+                        <>
+                        {
+                            user?.photoURL ?
+                            <Image title={user?.displayName} style={{height:'50px'}} roundedCircle src={user.photoURL}></Image>
+                            : 
+                            <FaUser title="User" style={{height:'50px'}}></FaUser>
+                        }
+                        </>
+                        :
+                        <FaUser title="User" style={{height:'50px'}}></FaUser>
+                    }
+                  </form>
                 </div>
 
             </div>
