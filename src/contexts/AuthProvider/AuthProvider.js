@@ -1,6 +1,8 @@
 import React, { createContext, useEffect, useState } from 'react';
 import {createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile} from 'firebase/auth';
 import app from '../../firebase/firebase.config';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export const AuthContext = createContext();
 const auth = getAuth(app);
@@ -48,6 +50,21 @@ const AuthProvider = ({children}) => {
         }
     })
 
+
+    // Toast
+    const successMessage = () => {
+        toast.success('Data Saved Successfully', {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+        });
+    }
+
     const authInfo = {
         user,
         loading,
@@ -55,7 +72,8 @@ const AuthProvider = ({children}) => {
         providerLogin,
         logIn,
         logOut,
-        updateUserProfile
+        updateUserProfile,
+        successMessage
     }
 
     return (

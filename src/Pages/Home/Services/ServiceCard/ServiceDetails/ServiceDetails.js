@@ -3,27 +3,15 @@ import { PhotoProvider, PhotoView } from 'react-photo-view';
 import { Link, useLoaderData } from 'react-router-dom';
 import useTitle from '../../../../../hooks/useTitle';
 import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+// import 'react-toastify/dist/ReactToastify.css';
 import { AuthContext } from '../../../../../contexts/AuthProvider/AuthProvider';
 import CustomersReview from './CustomersReview/CustomersReview';
 
 const ServiceDetails = () => {
     useTitle('Service Details');
 
-    const { user } = useContext(AuthContext);
+    const { user, successMessage } = useContext(AuthContext);
 
-    const successMessage = () => {
-        toast.success('Data Saved Successfully', {
-            position: "top-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "light",
-        });
-    }
     // ==================================== Show Service Details ======================
 
     const { _id, title, img, price, days, rating, description } = useLoaderData();
@@ -52,6 +40,7 @@ const ServiceDetails = () => {
         
         const reviewData = {
             service_id: _id,
+            // service_title: title,
             img: img,
             name: name,
             email: email,

@@ -29,7 +29,7 @@ const Header = () => {
             user?.email ?
                 <>
                    <li className="nav-item">
-                        <Link className="nav-link" aria-current="page" to="/">My Reviews</Link>
+                        <Link className="nav-link" aria-current="page" to="/my-reviews">My Reviews</Link>
                     </li>
                     <li className="nav-item">
                         <Link className="nav-link" aria-current="page" to="/add-service">Add Service</Link>
