@@ -14,10 +14,10 @@ const ServiceWiseReviews = ({ service }) => {
 
     // Load Service wise Reviews
     useEffect(() => {
-        fetch(`https://service-review-server-murex.vercel.app/reviews/${serviceId}`, {
+        fetch(`http://localhost:5000/reviews/${serviceId}`, {
             method: 'GET',
             headers: {
-                authorization: `Bearer ${localStorage.getItem('travel-service-token')}`
+                authorization: `Bearer ${localStorage.getItem('travelServiceToken')}`
             }
         })
             .then(res => {
@@ -36,7 +36,7 @@ const ServiceWiseReviews = ({ service }) => {
     const handleDelete = (reviewId) => {
         const proceed = window.confirm('Are you sure to delete ?');
         if (proceed) {
-            fetch(`https://service-review-server-murex.vercel.app/review/${reviewId}`, {
+            fetch(`http://localhost:5000/review/${reviewId}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())
@@ -62,7 +62,7 @@ const ServiceWiseReviews = ({ service }) => {
             review: customerReview
         };
 
-        fetch(`https://service-review-server-murex.vercel.app/review/${reviewId}`,{
+        fetch(`http://localhost:5000/review/${reviewId}`,{
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

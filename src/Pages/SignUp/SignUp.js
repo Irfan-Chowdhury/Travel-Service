@@ -22,12 +22,29 @@ const SignUp = () => {
 
         createUser(email, password)
         .then(result => {
-            // const user = result.user;
-            // console.log(result);
-            // console.log(user);
+            const user = result.user;
+            
+            const currentuser = {
+                email: user.email
+            }
+
             form.reset();
             handleUpdateUserProfile(name, photoURL);
-            navigate('/');
+
+            // get JWT token
+            fetch('http://localhost:5000/jwt',{
+                method:'POST',
+                headers:{
+                    'content-type':'application/json'
+                },
+                body:JSON.stringify(currentuser)
+            })
+            .then(res => res.json())
+            .then(data => {
+                // local storage is the easiest but not the best place to store jwt token
+                localStorage.setItem('travelServiceToken',data.token);
+                navigate('/');
+            });
         })
         .catch(err => console.error(err));
     }

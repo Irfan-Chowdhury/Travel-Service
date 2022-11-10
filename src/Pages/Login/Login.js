@@ -30,7 +30,7 @@ const Login = () => {
             }
 
             // get JWT token
-            fetch('https://service-review-server-murex.vercel.app/jwt',{
+            fetch('http://localhost:5000/jwt',{
                 method:'POST',
                 headers:{
                     'content-type':'application/json'
@@ -40,7 +40,7 @@ const Login = () => {
             .then(res => res.json())
             .then(data => {
                 // local storage is the easiest but not the best place to store jwt token
-                localStorage.setItem('travel-service-token',data.token);
+                localStorage.setItem('travelServiceToken',data.token);
                 form.reset(); 
                 navigate(from, {replace:true});
             });
@@ -64,7 +64,7 @@ const Login = () => {
             }
 
             // get JWT token
-            fetch('https://service-review-server-murex.vercel.app/jwt',{
+            fetch('http://localhost:5000/jwt',{
                 method:'POST',
                 headers:{
                     'content-type':'application/json'
@@ -74,7 +74,7 @@ const Login = () => {
             .then(res => res.json())
             .then(data => {
                 // local storage is the easiest but not the best place to store jwt token
-                localStorage.setItem('travel-service-token',data.token);
+                localStorage.setItem('travelServiceToken',data.token);
                 navigate(from, {replace:true});
             });
             // console.log(user);

@@ -41,7 +41,7 @@ const AddService = () => {
             description:description
         };
 
-        fetch('https://service-review-server-murex.vercel.app/services', {
+        fetch('http://localhost:5000/services', {
             method:'POST',
             headers:{
                 'content-type':'application/json'

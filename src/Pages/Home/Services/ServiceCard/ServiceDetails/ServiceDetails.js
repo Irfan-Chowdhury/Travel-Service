@@ -10,7 +10,7 @@ import CustomersReview from './CustomersReview/CustomersReview';
 const ServiceDetails = () => {
     useTitle('Service Details');
 
-    const { user, successMessage } = useContext(AuthContext);
+    const { user, successMessage, logOut } = useContext(AuthContext);
 
     // ==================================== Show Service Details ======================
 
@@ -22,10 +22,25 @@ const ServiceDetails = () => {
     const serviceId = _id;
 
     useEffect(() => {
-        fetch(`https://service-review-server-murex.vercel.app/reviews/${serviceId}`)
-        .then(res => res.json())
+        fetch(`http://localhost:5000/reviews/${serviceId}`,{
+            method: 'GET',    
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('travelServiceToken')}`
+            }
+        })
+    //     .then(res => res.json())
+    //     .then(data => setReviews(data));
+    // }, [serviceId]);
+        .then(res => {
+            // console.log(res.status);
+            // return 'Access Denied';
+            if (res.status === 401 || res.status === 403) {
+                return logOut();
+            }
+            return res.json();
+        })
         .then(data => setReviews(data));
-    }, [serviceId]);
+    }, [serviceId,logOut]);
 
     // ==================================== Add Review ======================
 
@@ -48,7 +63,7 @@ const ServiceDetails = () => {
             review: review,
         };
 
-        fetch('https://service-review-server-murex.vercel.app/reviews', {
+        fetch('http://localhost:5000/reviews', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -93,6 +108,7 @@ const ServiceDetails = () => {
                 </div>
                 <div className="card-footer text-muted"></div>
             </div>
+
 
             {/* Add Review  */}
             <div className="card mt-4">

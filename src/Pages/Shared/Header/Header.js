@@ -12,7 +12,7 @@ const Header = () => {
     const handleLogOut = () => {
         logOut()
         .then(() => {
-            localStorage.removeItem("travel-service-token");
+            localStorage.removeItem("travelServiceToken");
          })
         .catch(error => console.error(error));
     }
