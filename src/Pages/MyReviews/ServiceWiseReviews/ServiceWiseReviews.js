@@ -3,38 +3,50 @@ import { ToastContainer } from 'react-toastify';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 import Review from './Review/Review';
 
-const ServiceWiseReviews = ({service}) => {
+const ServiceWiseReviews = ({ service }) => {
 
-    const { successMessage } = useContext(AuthContext);
-    const {_id, title} = service;
+    const { successMessage, logOut } = useContext(AuthContext);
+    const { _id, title } = service;
     const serviceId = _id;
-    
+
 
     const [reviews, setReviews] = useState([]);
 
     // Load Service wise Reviews
     useEffect(() => {
-        fetch(`https://service-review-server-murex.vercel.app/reviews/${serviceId}`)
-        .then(res => res.json())
-        .then(data => setReviews(data));
-    }, [serviceId]);
+        fetch(`http://localhost:5000/reviews/${serviceId}`, {
+            method: 'GET',
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('travel-service-token')}`
+            }
+        })
+            .then(res => {
+                // console.log(res.status);
+                // return 'Access Denied';
+                if (res.status === 401 || res.status === 403) {
+                    return logOut();
+                }
+                return res.json();
+            })
+            .then(data => setReviews(data));
+        }, [serviceId,logOut]);
 
 
     // Review Delete
     const handleDelete = (reviewId) => {
         const proceed = window.confirm('Are you sure to delete ?');
-        if(proceed){
-            fetch(`https://service-review-server-murex.vercel.app/review/${reviewId}`,{
-                method:'DELETE'
+        if (proceed) {
+            fetch(`http://localhost:5000/review/${reviewId}`, {
+                method: 'DELETE'
             })
-            .then(res => res.json())
-            .then(data => {
-                if(data.deletedCount > 0){
-                    const remaining = reviews.filter(review => review._id !== reviewId);
-                    setReviews(remaining);
-                    successMessage();
-                }
-            });
+                .then(res => res.json())
+                .then(data => {
+                    if (data.deletedCount > 0) {
+                        const remaining = reviews.filter(review => review._id !== reviewId);
+                        setReviews(remaining);
+                        successMessage();
+                    }
+                });
         }
     }
 
@@ -53,7 +65,7 @@ const ServiceWiseReviews = ({service}) => {
     //     console.log(123);
     //     return;
 
-    //     fetch(`https://service-review-server-murex.vercel.app/review/${reviewId}`,{
+    //     fetch(`http://localhost:5000/review/${reviewId}`,{
     //         method: 'PUT',
     //         headers: {
     //             'content-type': 'application/json'
@@ -88,13 +100,13 @@ const ServiceWiseReviews = ({service}) => {
                         </tr>
                     </thead>
                     <tbody>
-                        {   
-                            reviews.length >0 ?
-                            reviews.map(review => <Review  key={review._id} review={review} title={title} handleDelete={handleDelete}></Review>)
-                            :
-                            <tr>
-                                <td><h2 className='p-4 text-danger'>No Review Found</h2></td>
-                            </tr>
+                        {
+                            reviews.length > 0 ?
+                                reviews.map(review => <Review key={review._id} review={review} title={title} handleDelete={handleDelete}></Review>)
+                                :
+                                <tr>
+                                    <td><h2 className='p-4 text-danger'>No Review Found</h2></td>
+                                </tr>
                         }
                     </tbody>
                 </table>

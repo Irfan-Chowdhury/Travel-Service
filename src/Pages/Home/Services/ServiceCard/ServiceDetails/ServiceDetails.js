@@ -22,7 +22,7 @@ const ServiceDetails = () => {
     const serviceId = _id;
 
     useEffect(() => {
-        fetch(`https://service-review-server-murex.vercel.app/reviews/${serviceId}`)
+        fetch(`http://localhost:5000/reviews/${serviceId}`)
         .then(res => res.json())
         .then(data => setReviews(data));
     }, [serviceId]);
@@ -48,7 +48,7 @@ const ServiceDetails = () => {
             review: review,
         };
 
-        fetch('https://service-review-server-murex.vercel.app/reviews', {
+        fetch('http://localhost:5000/reviews', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

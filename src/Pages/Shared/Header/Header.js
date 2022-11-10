@@ -11,7 +11,9 @@ const Header = () => {
 
     const handleLogOut = () => {
         logOut()
-        .then(() => { })
+        .then(() => {
+            localStorage.removeItem("travel-service-token");
+         })
         .catch(error => console.error(error));
     }
 
@@ -51,6 +53,7 @@ const Header = () => {
             <div className="container-fluid">
                 <a className="navbar-brand" href="/">
                   <img src={logo} style={{height:'50px',width:'60px'}} alt="Bootstrap" />
+                  <span className='ms-2'>Travel Service</span>
                 </a>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                   <span className="navbar-toggler-icon"></span>

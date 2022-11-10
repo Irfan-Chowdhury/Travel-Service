@@ -13,13 +13,13 @@ const AuthProvider = ({children}) => {
     const [loading, setLoading] = useState(true);
 
     const createUser = (email, password) => {
-        // setLoading(true);
+        setLoading(true);
         return createUserWithEmailAndPassword(auth, email, password);
     }
 
     // Google
     const providerLogin = (provider) => {
-        // setLoading(true);
+        setLoading(true);
         return signInWithPopup(auth, provider)
     }
 
@@ -28,13 +28,13 @@ const AuthProvider = ({children}) => {
     }
 
     const logIn = (email, password) => {
-        // setLoading(true);
+        setLoading(true);
         return signInWithEmailAndPassword(auth, email, password);
     }
 
     const logOut = () => {
         // localStorage.removeItem('genius-token')
-        // setLoading(true);
+        setLoading(true);
         return signOut(auth);
     }
 

@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
-import { Button } from 'react-bootstrap';
-import { Link, useNavigate } from 'react-router-dom';
+import { Button, Spinner } from 'react-bootstrap';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaGoogle } from 'react-icons/fa';
 import login from '../../assets/login/login.webp'
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
@@ -12,6 +12,8 @@ const Login = () => {
     const {logIn, providerLogin} = useContext(AuthContext);
     const googleProvider = new GoogleAuthProvider();
     const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
 
     const handleLogin = event => {
         event.preventDefault();
@@ -22,8 +24,29 @@ const Login = () => {
         logIn(email, password)
         .then(result => {
             const user = result.user;
-            console.log(user);
-            form.reset(); 
+            
+            const currentuser = {
+                email: user.email
+            }
+
+            // get JWT token
+            fetch('http://localhost:5000/jwt',{
+                method:'POST',
+                headers:{
+                    'content-type':'application/json'
+                },
+                body:JSON.stringify(currentuser)
+            })
+            .then(res => res.json())
+            .then(data => {
+                // local storage is the easiest but not the best place to store jwt token
+                localStorage.setItem('travel-service-token',data.token);
+                form.reset(); 
+                navigate(from, {replace:true});
+            });
+
+            // form.reset(); 
+            // navigate(from, {replace:true});
         })
         .catch(error => {
             console.error(error);
@@ -35,14 +58,34 @@ const Login = () => {
         providerLogin(googleProvider)
         .then(result => {
             const user = result.user;
-            console.log(user);
-            navigate('/');
+
+            const currentuser = {
+                email: user.email
+            }
+
+            // get JWT token
+            fetch('http://localhost:5000/jwt',{
+                method:'POST',
+                headers:{
+                    'content-type':'application/json'
+                },
+                body:JSON.stringify(currentuser)
+            })
+            .then(res => res.json())
+            .then(data => {
+                // local storage is the easiest but not the best place to store jwt token
+                localStorage.setItem('travel-service-token',data.token);
+                navigate(from, {replace:true});
+            });
+            // console.log(user);
+            // navigate(from, {replace:true});
         })
         .catch(error => {
             console.error(error)
             // setError(error.message)
         });
     }
+    
 
 
 

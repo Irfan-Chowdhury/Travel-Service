@@ -8,6 +8,7 @@ import ServiceDetails from "../../Pages/Home/Services/ServiceCard/ServiceDetails
 import Login from "../../Pages/Login/Login";
 import MyReviews from "../../Pages/MyReviews/MyReviews";
 import SignUp from "../../Pages/SignUp/SignUp";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -21,16 +22,16 @@ const router = createBrowserRouter([
             {
                 path:'/services',
                 element:<AllService></AllService>,
-                loader: () => fetch('https://service-review-server-murex.vercel.app/services')
+                loader: () => fetch('http://localhost:5000/services')
             },
             {
                 path:'/services/:id',
-                element:<ServiceDetails></ServiceDetails>, //Private
-                loader: ({params}) => fetch(`https://service-review-server-murex.vercel.app/services/${params.id}`)
+                element: <PrivateRoute><ServiceDetails></ServiceDetails></PrivateRoute>, //Private
+                loader: ({params}) => fetch(`http://localhost:5000/services/${params.id}`)
             },
             {
                 path:'/add-service',
-                element:<AddService></AddService> //Private
+                element:<PrivateRoute><AddService></AddService></PrivateRoute> //Private
             },
             {
                 path:'/blog',
@@ -38,7 +39,7 @@ const router = createBrowserRouter([
             },
             {
                 path:'/my-reviews',
-                element:<MyReviews></MyReviews> //Private
+                element:<PrivateRoute><MyReviews></MyReviews></PrivateRoute> //Private
             },
             {
                 path:'/login',
