@@ -24,7 +24,7 @@ const ServiceCard = ({ service }) => {
                     <h3 className="card-title pricing-card-title">$ {price}<small className="text-muted fw-light">/{days} days</small></h3>
                     <ul className="list-unstyled mt-3 mb-4">
                         <li><b>Rating:</b> {rating}</li>
-                        <li className='text-start mt-2'><b>Short Note:</b> {short_description}</li>
+                        <li className='text-start mt-2'><b>Short Note:</b>  {short_description.slice(0, 100) + (short_description.length > 100 ? "..." : "")}</li>
                     </ul>
                     <Link to={`/services/${_id}`} className="w-100 btn btn-lg btn-outline-primary">View Details</Link>
                 </div>

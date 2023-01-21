@@ -8,7 +8,7 @@ const Services = () => {
     const [services, setServices] = useState([]);
     useEffect( () => {
         // fetch(`services.json`)
-        fetch(`http://localhost:5000/services-limit`)
+        fetch(`https://service-review-server-murex.vercel.app/services-limit`)
         // fetch(`${process.env.REACT_APP_SERVER_ROOT_URL}/services`)
         .then(res => res.json())
         .then(data => setServices(data))

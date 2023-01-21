@@ -32,7 +32,7 @@ const SignUp = () => {
             handleUpdateUserProfile(name, photoURL);
 
             // get JWT token
-            fetch('http://localhost:5000/jwt',{
+            fetch('https://service-review-server-murex.vercel.app/jwt',{
                 method:'POST',
                 headers:{
                     'content-type':'application/json'
